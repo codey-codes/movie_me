@@ -1,0 +1,181 @@
+@import '../base/variables';
+
+.search-page {
+    display: none;
+    width: 90%;
+    height: auto;
+    color: #000;
+    font-size: 1.4rem;
+    margin: 2.5rem auto;
+    padding: 2rem 0 3rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__no-results {
+        color: #000;
+        font-size: 1.5rem;
+        display: block;
+        margin: 2rem auto;
+    }
+
+    &__movie {
+        width: 450px;
+        height: 275px;
+        margin: 2rem 1rem;
+        border: 1.5px solid $col-grey-dark;        
+        box-shadow: $box-shadow;          
+        border-radius: 10px;
+        padding: 1.75rem;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        @include responsive (larger) {
+            border: $border-std;        
+            box-shadow: none;          
+            border-radius: 5px;
+            width: 85%;
+            height: 170px;
+            justify-content: center;
+        }
+
+        @include responsive (smaller-1) {
+            width: auto;
+            max-width: 85%;
+            height: 200px;
+        }
+
+        @include responsive (smaller) {
+            width: auto;
+            max-width: 98%;
+            height: 220px;
+        }
+
+        @include responsive (smallest) {
+            width: 98%;
+            height: auto;
+            min-height: 250px;
+        }
+
+        @include responsive (cheap) {
+            flex-direction: column;
+        }
+
+        &-poster {
+            margin-right: 2rem;
+            align-self: center;
+
+            & a {
+                cursor: pointer;
+            }
+
+            &-image {
+                width: 150px;
+                height: 225px;
+                border-radius: 5px;
+                box-shadow: $box-shadow;  
+
+                @include responsive (larger) {
+                    width: 100px;
+                    height: 150px;
+                }
+                
+                @include responsive (smaller-1) {
+                    width: 120px;
+                    height: 180px;
+                }
+
+                @include responsive (smaller) {
+                    width: 133px;
+                    height: 200px;
+                }
+
+                @include responsive (smallest) {
+                    width: 147px;
+                    height: 220px;
+                }
+
+                @include responsive (cheap) {
+                    width: 120px;
+                    height: 180px;
+                }
+            }
+        }
+
+        &-info {
+
+            &-main {
+                margin-bottom: .5rem;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+                @include responsive (smaller) { flex-direction: column; }
+
+                &-title {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #000;
+
+                    @include responsive (cheap) {
+                        margin-top: 1rem;
+                    }
+                                        
+                    & a {
+
+                        &:link,
+                        &:visited,
+                        &:hover,
+                        &:active {
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                &-rating {
+                    width: 65px;
+                    height: 27px;
+                    font-size: 1.4rem;    
+                    color: #fff;
+                    background-color: #000;
+                    border-radius: 20px;
+                    box-shadow: $box-shadow;   
+                    padding: 1rem;
+                    margin: .25rem 0 .25rem auto; 
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;                         
+                }
+            }
+
+            &-date {
+                font-size: 1.2rem;
+                color: $col-grey-dark;
+
+                @include responsive (smaller) { align-self: flex-start; }
+            }
+
+            &-overview-link {
+                color: $col-grey-dark;
+                text-decoration: none;
+                transition: all .2s;
+                border-bottom: $border-std;
+                padding: 0;
+                white-space: nowrap;
+
+                &:hover,
+                &:active {
+                    cursor: pointer;
+                    padding-bottom: .3rem;
+                }
+            }
+        }
+    }
+}

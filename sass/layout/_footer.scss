@@ -1,0 +1,122 @@
+@import '../base/variables';
+
+.footer {
+    max-width: 120rem;
+    width: 100%;
+    height: 11rem;
+    padding: .5rem 7rem;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: -7rem;
+    left:0;
+    box-shadow: $box-shadow;
+    user-select: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include responsive (small) { 
+        height: 6rem;
+        bottom: -6rem;
+        padding: .5rem 5rem;
+    }
+
+    @include responsive (smaller) { 
+        height: 6rem;
+        bottom: -6rem;
+        padding: .5rem 1.2rem;
+    }
+
+    &__left {
+        flex: 0 0 210px; 
+
+        @include responsive (cheapest) { 
+            flex: 0 0 40%;
+        }
+
+        &--text {
+            @include responsive (small) { 
+                display: none;
+            }
+        
+            &-mobile {
+                display: none;
+
+                @include responsive (small) { 
+                    display: block;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    & > a {
+        flex: 1;
+        justify-content: center;
+    }
+
+    &__logo {
+        @include responsive (small) { display: none; }
+    }
+
+    &__right {
+        font-size: 1.1rem;
+        
+        flex: 0 0 20%;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+
+        @include responsive (small) { flex: 0 0 30%; }
+        @include responsive (cheapest) { flex: 0 0 40%; }
+
+        &-desktop {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: .3rem;
+      
+            &-image {
+                width: 40px;
+                height: 40px;
+                align-self: center;
+                margin-top: 1rem;
+
+                @include responsive (medium) { display: none; }
+            }
+
+            &-text {
+                font-size: 1rem;
+                margin-left: 1rem;
+
+                flex-wrap: wrap;
+                flex: 0 0 110px;
+
+                @include responsive (medium) { display: none; }
+            }
+        }
+
+        &-mobile {
+            display: none;
+            justify-content: flex-end;
+
+            @include responsive (medium) { display: flex; }
+
+            &-powered {
+                margin-right: 1rem;
+            }
+
+            &-sources {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        
+        &-omdb {
+            @include responsive (medium) { display: none; }
+        }
+    }
+}

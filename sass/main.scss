@@ -1,0 +1,13 @@
+@import './base/animation';
+@import './base/base';
+@import './base/mixins';
+@import './base/variables';
+
+@import './layout/header';
+@import './layout/container';
+@import './layout/footer';
+
+@import './pages/home';
+@import './pages/contact';
+@import './pages/search';
+@import './pages/movie';

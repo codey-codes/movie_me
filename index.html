@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="shortcut icon" type="image/png" href="img/movie_me_favicon.png">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>Movie_Me!</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="header">
+                <img src="img/movie_me_logo_white.png" alt="movie_me_logo" class="header__logo">
+                <img src="img/movie_me_logo_white_footer.png" alt="movie_me_logo" class="header__logo-mobile">
+                <div class="header__search">
+                    <input type="text" class="header__search--bar" placeholder="Search movies...">
+                    <button class="header__search--btn">
+                        <i class="fas fa-search header__search--icon"></i>
+                        <i class="fas fa-search header__search--icon-mobile"></i>
+                        <input type="text" class="header__search--btn-bar" placeholder="Search movies...">
+                    </button>
+                </div>  
+                <nav class="header__nav">
+                    <span href="#" class="header__nav--item nav__popular">Popular Now</span>
+                    <span href="#" class="header__nav--item nav__playing">Now Playing</span>
+                    <span href="#" class="header__nav--item nav__upcoming">Upcoming</span>
+                    <span href="#" class="header__nav--item nav__contact">Contact</span>
+                    <div class="header__nav--item header__nav--item-more">More <i class="fas fa-angle-down"></i>
+                        <ul class="header__nav--item-more-list">
+                            <li><a href="https://github.com/codey-codes/movie_me.git" target="_blank">Visit GitHub Page</a></li>
+                            <li><a href="https://codeycodes.com/projects">Back to Portfolio</a></li>
+                            <li><a target="_blank" href="https://codeycodes.com">CodeyCodes.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="header__nav--mobile">
+                        <input type="checkbox" class="header__nav--mobile-icon" id="navi-toggle">
+                        <label for="navi-toggle">
+                            <span class="header__nav--mobile-icon-self">&nbsp;</span>
+                        </label>
+                        <nav class="container__nav--mobile">
+                            <ul class="container__nav--mobile-top">
+                                <li onclick="controlHomePage('popular')">Popular Now</li>
+                                <li onclick="controlHomePage('playing')">Now Playing</li>
+                                <li onclick="controlHomePage('upcoming')">Upcoming</li>
+                                <li onclick="controlContactPage()">Contact</li>
+                            </ul>
+                            <ul class="container__nav--mobile-bottom">
+                                <li><a href="https://github.com/codey-codes/movie_me.git" target="_blank">Visit GitHub Page &nbsp;&rarr;</a></li>
+                                <li><a href="https://codeycodes.com/projects">Back to Portfolio &nbsp;&rarr;</a></li>
+                                <li><a target="_blank" href="https://codeycodes.com">CodeyCodes.com &nbsp;&rarr;</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </nav>
+            </header>
+            
+            <div class="content">
+                <p class="error-message">Whooops... Server not available at the moment, please try again in a few minutes... :/</p>
+                <div class="loader-container">
+                    <div class="dot-1-wrapper"><div class="dot-1"></div></div>
+                    <div class="dot-2"></div>
+                </div>
+
+                <div class="home-page">
+                </div>
+
+                <div class="search-page">
+                </div>
+
+                <div class="contact-page">
+                    <div class="contact-page__section">
+                        <form action="" class="contact-page__form" autocomplete="off">
+                            <h2 class="contact-page__form-heading">Let's chat.</h2>
+                            <div class="contact-page__form-name">
+                                <input type="text" class="contact-page__form-input" id="name" placeholder="Name" autocomplete="off">
+                                <label for="name" class="contact-page__form-label">Name</label>
+                            </div>
+                            <div class="contact-page__form-email">
+                                <input type="email" class="contact-page__form-input" id="email" placeholder="Email" autocomplete="off">
+                                <label for="email" class="contact-page__form-label">Email</label>
+                            </div>
+                            <div class="contact-page__form-website">
+                                <input type="url" class="contact-page__form-input" id="web" placeholder="Website" autocomplete="off">
+                                <label for="web" class="contact-page__form-label">Website</label>
+                            </div>
+                            <p>Subscribe?</p>
+                            <div class="contact-page__form-radio">
+                                <input type="radio" class="contact-page__form-radio-input" id="subscribe-yes" name="reply" checked>
+                                <label for="subscribe-yes" class="contact-page__form-radio-label"><i class="fas fa-check-circle contact-page__form-radio-yes"></i><i class="fas fa-circle contact-page__form-radio-no"></i>Yes, please</label>
+                            </div>
+                            <div class="contact-page__form-radio">
+                                <input type="radio" class="contact-page__form-radio-input" id="subscribe-no" name="reply">
+                                <label for="subscribe-no" class="contact-page__form-radio-label"><i class="fas fa-check-circle contact-page__form-radio-yes"></i><i class="fas fa-circle contact-page__form-radio-no"></i>No, thank you</label>
+                            </div>
+                            <div class="contact-page__form-button">
+                                <button class="contact-page__form-button-submit">Send <span class="contact-page__form-button-submit-arrow">&nrarr;</span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="movie-page">
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer__left">
+                    <p class="footer__left--text">Designed & Developed by: <a target="_blank" href="https://codeycodes.com" class="link">Codey Codes</a></p>
+                    <a href="https://github.com/codey-codes/movie_me.git" class="link footer__left--text" target="_blank">View on GitHub</a>
+                    <p class="footer__left--text-mobile">By:</p>
+                    <p class="footer__left--text-mobile"><a target="_blank" href="https://codeycodes.com" class="link">&copy; Codey Codes</a></p>
+                </div>
+                <div class="footer__center">
+                    <img src="img/movie_me_logo_white_footer.png" alt="movie_me_logo_footer" class="header__logo footer__logo">
+                </div>
+                <div class="footer__right">
+                    <div class="footer__right-desktop">
+                        <a class="link" href="https://www.themoviedb.org/?language=en-US" target="_blank"><img src="img/TMDB_logo.png" alt="" class="footer__right-desktop-image"></a>
+                        <p class="footer__right-desktop-text">This app uses the TMDb API but is not endorsed or certified by <a class="link" href="https://www.themoviedb.org/?language=en-US" target="_blank">TMDb</a>.</p>
+                        <div class="footer__right-mobile">
+                            <p class="footer__right-mobile-powered">Powered by: </p>
+                            <div class="footer__right-mobile-sources">
+                                <a class="link" href="https://www.themoviedb.org/?language=en-US" target="_blank">TMDB</a>
+                                <a class="link" href="http://www.omdbapi.com/" target="_blank">OMDB</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="footer__right-omdb">Also powered by: <a class="link" href="http://www.omdbapi.com/" target="_blank">OMDB API</a></p>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript" src="js/bundle.js" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    box-sizing: border-box;
+    font-size: 62.5%;   // makes 1rem = 10px (10px/16px)
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-image: -webkit-gradient(linear, left top, right bottom, from($col-grey-dark), to($col-grey-light));
+    background-image: linear-gradient(to bottom right, $col-grey-dark, $col-grey-light);
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.heading {
+    font-weight: 700;
+    text-align: center;
+    font-size: 2.2rem;
+    color: #000;
+    margin-bottom: 1rem;
+    transition: transform .2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.link {
+    display: inline-block;
+    transition: transform .1s;
+
+    &:link,
+    &:visited {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+        color: $col-grey-dark;
+        transform: rotate(-2deg) scale(1.1);
+    }
+}
+
+.error-message {
+    font-size: 1.8rem;
+    padding: 5rem;
+    text-align: center;
+    display: none;
+}
+
+.loader-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+}
+
+.dot-1-wrapper {
+    width: 100px;
+    height: 100px;
+    animation: rotateIt 1s ease-in-out infinite alternate;
+}
+
+.dot-1, .dot-2 {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    position: absolute;
+}
+
+.dot-1 {
+    background-color: #fff;
+    border: $border-std;
+}
+
+.dot-2 {
+    background-color: #000;
+    animation: moveIt 1s ease-in-out infinite alternate;
+}
+
+::-webkit-scrollbar {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    @include responsive (medium) { 
+        width: .8rem;
+        height: .8rem;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: $col-grey-light; 
+    
+    @include responsive (smaller) { 
+        background: #fff; 
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000; 
+    border-radius: 3px;
+
+    @include responsive (smaller) { 
+        background: #fff; 
+    }
+}
+  
+
