@@ -5,10 +5,10 @@ Whenever you want to look for a movie, where do you go? Google? IMDb? How can yo
 
 ## Features: ##
 1. Movie_Me! currently has 4 options to get movie information:
-    1a. Users can view the trending movies of today under the 'Popular Now' section
-    2a. 'Now Playing' section shows the currently playing movies in the popular cinemas
-    3a. Users can view the upcoming movies that are expected to be released soon in the 'Upcoming' section
-    4a. Or users can just search for any movie from any country provided that said movie is available in the database of TMDB
+    * Users can view the trending movies of today under the 'Popular Now' section
+    * 'Now Playing' section shows the currently playing movies in the popular cinemas
+    * Users can view the upcoming movies that are expected to be released soon in the 'Upcoming' section
+    * Or users can just search for any movie from any country provided that said movie is available in the database of TMDB
 2. The basic information of the chosen movie will be displayed. This information includes:
     * Movie title
     * Release date
