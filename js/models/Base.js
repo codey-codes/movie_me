@@ -2,7 +2,6 @@
 
 export const elements = {
     headerLogo: document.querySelector('.header__logo'),
-    headerLogoMobile: document.querySelector('.header__logo-mobile'),
     navPopular: document.querySelector('.nav__popular'),
     navPlaying: document.querySelector('.nav__playing'),
     navUpcoming: document.querySelector('.nav__upcoming'),

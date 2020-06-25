@@ -1,16 +1,16 @@
 @import '../base/variables';
 
 .header {
-    max-width: 120rem;
+    max-width: 125rem;
     width: 100%;
     height: 9rem;
     padding: .5rem 3.5rem;
     background-color: #000;
-    color: #fff;
+    color: $col-grey-dark;
+    border-bottom: 1px solid $col-grey-dark;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: $box-shadow;
     z-index: 1000;
     user-select: none;
 
@@ -30,28 +30,7 @@
     &__logo {
         width: 14rem;
         height: auto;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        @include responsive (smallest) { 
-            display: none;
-        }
-
-        &-mobile {
-            width: 14rem;
-            height: auto;
-            display: none;
-
-            @include responsive (smallest) { 
-                display: block;
-            }
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
+        cursor: pointer;
     }
 
     &__search {
@@ -93,6 +72,8 @@
             margin-left: -3rem;
             outline: none;
             position: relative;
+            width: 20px;
+            height: 20px;
 
             @include responsive (smallest) { 
                 border-radius: 50%;
@@ -129,19 +110,13 @@
         }
 
         &--icon {
-            font-size: 1.8rem;
-
-            @include responsive (smallest) { 
-                display: none;
-            }   
 
             &-mobile {
-                font-size: 1.8rem;
                 display: none;
+                width: 100%;
+                height: 100%;
 
                 @include responsive (smallest) { 
-                    font-size: 2.2rem;
-                    color: #fff;
                     display: inline-block;
                 }   
             }
@@ -152,6 +127,7 @@
         font-size: 1.5rem;
         text-decoration: none;
         position: relative;
+        color: $col-grey-light;
         
         &--item {
             padding: 1rem;
@@ -164,7 +140,7 @@
 
             &:link,
             &:visited {
-                color: #fff;
+                color: $col-grey-light;
                 text-decoration: none;
             }
 

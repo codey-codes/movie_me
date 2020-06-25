@@ -164,11 +164,11 @@ elements.searchButton.addEventListener('click', () => {     // if the search but
     }
 });
 
-[elements.headerLogo, elements.headerLogoMobile].forEach(e => e.addEventListener('click', () => {
+elements.headerLogo.addEventListener('click', () => {
     window.scrollTo(0, 0);
     clearAll();
     controlHomePage('trending');
-}));
+});
 
 elements.navContact.addEventListener('click', () => {
     window.scrollTo(0, 0);
@@ -196,6 +196,5 @@ elements.navPlaying.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
     clearAll();
-    console.log('Page reloaded');
     controlHomePage('trending');
 });

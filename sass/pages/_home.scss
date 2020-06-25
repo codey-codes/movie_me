@@ -3,7 +3,7 @@
 .home-page {
     width: 90%;
     height: auto;
-    color: #000;
+    color: $col-grey-light;
     font-size: 1.4rem;
     margin: 2.5rem auto;
     padding: 2rem 0 3rem;
@@ -16,6 +16,7 @@
     &__heading {
         flex: 0 0 100%;
         text-shadow: .2rem .2rem rgba(0, 0, 0, 0.2);
+        color: $col-grey-light;
 
         @include responsive (larger) { justify-self: center; }
     }
@@ -77,7 +78,6 @@
                 width: 150px;
                 height: 225px;
                 border-radius: 5px;
-                box-shadow: $box-shadow;   
 
                 @include responsive (larger) {
                     width: 100px;
@@ -118,20 +118,25 @@
                 &-title {
                     font-size: 1.5rem;
                     font-weight: 700;
-                    color: #000;
+                    color: $col-grey-dark;
+                    transition: all .2s;
 
                     @include responsive (cheap) {
                         margin-top: 1rem;
                     }
 
                     & a {
+                        cursor: pointer;
                         
                         &:link,
-                        &:visited,
+                        &:visited {
+                            text-decoration: none;
+                        }
+
                         &:hover,
                         &:active {
                             text-decoration: none;
-                            cursor: pointer;
+                            color: $col-grey-light;
                         }
                     }
                 }
@@ -140,8 +145,8 @@
                     width: 65px;
                     height: 27px;
                     font-size: 1.4rem;    
-                    color: #fff;
-                    background-color: #000;
+                    color: #000;
+                    background-color: $col-grey-light;
                     border-radius: 20px;
                     box-shadow: $box-shadow;   
                     padding: 1rem;
@@ -155,23 +160,28 @@
 
             &-date {
                 font-size: 1.2rem;
-                color: $col-grey-dark;
+                color: $col-grey-light;
 
                 @include responsive (smaller) { align-self: flex-start; }
             }
 
-            &-overview-link {
-                color: $col-grey-dark;
-                text-decoration: none;
-                transition: all .2s;
-                border-bottom: $border-std;
-                padding: 0;
-                white-space: nowrap;
+            &-overview {
+                color: $col-grey-light;
 
-                &:hover,
-                &:active {
-                    cursor: pointer;
-                    padding-bottom: .3rem;
+                &-link {
+                    color: $col-grey-dark;
+                    text-decoration: none;
+                    transition: all .2s;
+                    border-bottom: $border-std;
+                    padding: 0;
+                    white-space: nowrap;
+
+                    &:hover,
+                    &:active {
+                        cursor: pointer;
+                        padding-bottom: .3rem;
+                        color: $col-grey-light;
+                    }
                 }
             }
         }

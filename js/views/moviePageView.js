@@ -26,7 +26,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
         if (dataOMDB.Ratings[i].Source === "Internet Movie Database") {
             imdbScore = `<div class="content__top--secondary-imdb">
                             IMDB Score: <span class="content__top--secondary-imdb-rating">${dataOMDB.Ratings[i].Value}</span>
-                            <span class="content__top--secondary-imdb-icon"><i class="fas fa-star"></i></span>
+                            <span class="content__top--secondary-imdb-icon"><img src="img/icons/star-imdb.svg" alt="IMDB Star" height="100%"></span>
                         </div>`;
             imdbScoreTP = dataOMDB.Ratings[i].Value;
         }
@@ -39,7 +39,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     if (dataOMDB.imdbRating && dataOMDB.imdbRating !== "N/A") {  // just in case if IMDB rating is not available under 'Source: Internet Movie Database'
         imdbScore = `<div class="content__top--secondary-imdb">
                         IMDB Score: <span class="content__top--secondary-imdb-rating">${dataOMDB.imdbRating}</span>
-                        <span class="content__top--secondary-imdb-icon"><i class="fas fa-star"></i></span>
+                        <span class="content__top--secondary-imdb-icon"><img src="img/icons/star-imdb.svg" alt="IMDB Star" height="100%"></span>
                     </div>`;
         imdbScoreTP = dataOMDB.imdbRating;
     }
@@ -65,7 +65,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     //  Missing poster
     ///////////
     let moviePagePoster = '<img src="img/image-na.jpg" alt="movie-poster-not-available" class="search-page__movie-poster-image">';
-    if (dataTMDB.poster_path) moviePagePoster = `<a class="content__top--poster-link" href="https://image.tmdb.org/t/p/original${dataTMDB.poster_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w500${dataTMDB.poster_path}" alt="movie-poster-${dataTMDB.title}" class="content__top--poster"></a>`;
+    if (dataTMDB.poster_path) moviePagePoster = `<a class="content__top--poster-link" rel="noopener" href="https://image.tmdb.org/t/p/original${dataTMDB.poster_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w500${dataTMDB.poster_path}" alt="movie-poster-${dataTMDB.title}" class="content__top--poster"></a>`;
 
 
     ///////////
@@ -131,17 +131,17 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     //  To handle social media links
     ///////////
     let fb = '', twi = '', insta = '', web = '', socialHeading = '';    // if the links are not available, the icons will not be shown at all
-    if (socialMedia.facebook_id) fb = `<a target="_blank" href="https://www.facebook.com/${socialMedia.facebook_id}"><i class="content__middle--left-social-media-icon fab fa-facebook-f"></i></a>`;
+    if (socialMedia.facebook_id) fb = `<a target="_blank" rel="noopener" href="https://www.facebook.com/${socialMedia.facebook_id}"><img src="img/icons/facebook.svg" alt="facebook icon" class="content__middle--facts-social-media-icon"></a>`;
 
-    if (socialMedia.twitter_id) twi = `<a target="_blank" href="https://twitter.com/${socialMedia.twitter_id}"><i class="content__middle--left-social-media-icon fab fa-twitter"></i></a>`;
+    if (socialMedia.twitter_id) twi = `<a target="_blank" rel="noopener" href="https://twitter.com/${socialMedia.twitter_id}"><img src="img/icons/twitter.svg" alt="twitter icon" class="content__middle--facts-social-media-icon"></a>`;
 
-    if (socialMedia.instagram_id) insta = `<a target="_blank" href="https://www.instagram.com/${socialMedia.instagram_id}"><i class="content__middle--left-social-media-icon fab fa-instagram"></i></a>`;
+    if (socialMedia.instagram_id) insta = `<a target="_blank" rel="noopener" href="https://www.instagram.com/${socialMedia.instagram_id}"><img src="img/icons/instagram.svg" alt="instagram icon" class="content__middle--facts-social-media-icon"></a>`;
 
     if (dataTMDB.homepage) {
-        web = `<a target="_blank" href="${dataTMDB.homepage}"><i class="content__middle--left-social-media-icon fas fa-globe"></i></a>`;
-    } else if (dataOMDB.Website && dataOMDB.Website !== "N/A") web = `<a target="_blank" href="${dataOMDB.Website}"><i class="content__middle--left-social-media-icon fas fa-globe"></i></a>`;
+        web = `<a target="_blank" rel="noopener" href="${dataTMDB.homepage}"><img src="img/icons/globe.svg" alt="website icon" class="content__middle--facts-social-media-icon"></a>`;
+    } else if (dataOMDB.Website && dataOMDB.Website !== "N/A") web = `<a target="_blank" rel="noopener" href="${dataOMDB.Website}"><img src="img/icons/globe.svg" alt="website icon" class="content__middle--facts-social-media-icon"></a>`;
 
-    if (fb || twi || insta || web) socialHeading = `<p style="font-weight: 700; margin-bottom: 1rem;">Social Media:</p>`;
+    if (fb || twi || insta || web) socialHeading = `<p style="font-weight: 700; margin-bottom: 1rem; color: #e3e2dd ">Social Media:</p>`;
 
 
     ///////////
@@ -153,7 +153,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
         for (let i = 0; i < credits.cast.length; i++) {  
             if (i <= 9) { // to only show 10 cast members
                 if (credits.cast[i].profile_path) { 
-                    profilePicture = `<a href="https://image.tmdb.org/t/p/original${credits.cast[i].profile_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w185${credits.cast[i].profile_path}" alt="profile-photo-${credits.cast[i].name}" class="content__middle--other-cast-pic"></a>`;
+                    profilePicture = `<a rel="noopener" href="https://image.tmdb.org/t/p/original${credits.cast[i].profile_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w185${credits.cast[i].profile_path}" alt="profile-photo-${credits.cast[i].name}" class="content__middle--other-cast-pic"></a>`;
                 } else profilePicture = `<img src="img/image-na-2.jpg" alt="profile-photo-not-available" class="content__middle--other-cast-pic">`;  // if profile picture is not available
 
                 castProfileMarkup += `
@@ -171,7 +171,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     ///////////
     //  To show only Trailers (no other videos)
     ///////////
-    let trailerFrame = '';    // if there is no trailer available
+    let trailerFrame = null;    // if there is no trailer available
     for (let i = trailer.length - 1; i >= 0; i--) {     // running the loop backwards so that the topmost trailer (highest rated/most recent) is selected
         if (trailer[i].type === 'Trailer' || trailer[i].type === 'trailer') {
             if (trailer[i].site === 'YouTube' || trailer[i].site === 'Youtube' || trailer[i].site === 'youtube') {      // fallbacks just in case different formats are used
@@ -186,7 +186,7 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     ///////////
     let subMarkupBackdrops = '', subMarkupMainBackdrop = '';
     if (images.length !== 0) {
-        for (let i = 0; i < images.length; i++) subMarkupBackdrops += `<a href="https://image.tmdb.org/t/p/original${images[i].file_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w780${images[i].file_path}" alt="movie-photo"></a>`;
+        for (let i = 0; i < images.length; i++) subMarkupBackdrops += `<a rel="noopener" href="https://image.tmdb.org/t/p/original${images[i].file_path}" target="_blank"><img src="https://image.tmdb.org/t/p/w780${images[i].file_path}" alt="movie-photo"></a>`;
     } else subMarkupBackdrops = '<p style="font-size: 1.8rem; margin: 0 auto;">No Images Available..</p>'
     if (dataTMDB.backdrop_path) subMarkupMainBackdrop = `, url('https://image.tmdb.org/t/p/w1280${dataTMDB.backdrop_path}')`;
 
@@ -197,11 +197,11 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
     let subMarkupReviews = '';  // if there are no reviews, 'Read on IMDB' is shown instead
     let readMoreIMDB = '';  // the 'Read More on IMDB' should not show up when there is 'Read on IMDB' in case when there are not reviews available on TMDB                
     if (reviews.length === 0) {     // no reviews available 
-        subMarkupReviews = `<p class="content__bottom--reviews-read-more"><a class="external_link" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/reviews?ref_=tt_urv">Read on IMDB <i class="content__bottom--reviews-read-more-icon fas fa-long-arrow-alt-right"></i></a></p>`;    
+        subMarkupReviews = `<p class="content__bottom--reviews-read-more"><a rel="noopener" class="external_link" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/reviews?ref_=tt_urv">Read on IMDB</a></p>`;    
     } else {
-        readMoreIMDB = `<p class="content__bottom--reviews-read-more"><a class="external_link" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/reviews?ref_=tt_urv">Read More on IMDB <i class="content__bottom--reviews-read-more-icon fas fa-long-arrow-alt-right"></i></a></p> `;
+        readMoreIMDB = `<p class="content__bottom--reviews-read-more"><a rel="noopener" class="external_link" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/reviews?ref_=tt_urv">Read More on IMDB</a></p> `;
 
-        for (let i = 0; i < reviews.length; i++) if (i <= 2) subMarkupReviews += `<div><p>${contentLimiter(reviews[i].content, 230)}<br></p><p><a class="content__bottom--reviews-section-author" href="${reviews[i].url}" target="_blank"><b>- ${reviews[i].author}</b></a></p></div>`;  // making sure that the loop only runs 3 times (also, only when there are more than 3 reviews) so that max 3 reviews are shown
+        for (let i = 0; i < reviews.length; i++) if (i <= 2) subMarkupReviews += `<div><p>${contentLimiter(reviews[i].content, 230)}<br></p><p><a rel="noopener" class="content__bottom--reviews-section-author" href="${reviews[i].url}" target="_blank"><b>- ${reviews[i].author}</b></a></p></div>`;  // making sure that the loop only runs 3 times (also, only when there are more than 3 reviews) so that max 3 reviews are shown
     };
 
 
@@ -215,9 +215,9 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
                         <li><b>Release Date: </b><span class="movie-release-date">${dataTMDB.release_date ? dataTMDB.release_date : 'N/A'}</span></li>
                         <li><b>Runtime: </b><span class="movie-runtime">${dataTMDB.runtime ? dataTMDB.runtime + ' minutes' : 'N/A'}</span></li>
                     </ul>
-                    <p class="content__top--main-overview"><b>Overview:</b> ${dataTMDB.overview ? dataTMDB.overview : `<a target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/?ref_=tt_urv"> -> Read on IMDB <- </a>`}</p>
+                    <p class="content__top--main-overview"><b>Overview:</b> ${dataTMDB.overview ? dataTMDB.overview : `<a rel="noopener" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/?ref_=tt_urv"> -> Read on IMDB <- </a>`}</p>
                 </div>
-                <p class="content__top--main-overview-mobile"><b>Overview:</b> ${dataTMDB.overview ? dataTMDB.overview : `<a target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/?ref_=tt_urv"> -> Read on IMDB <- </a>`}</p>
+                <p class="content__top--main-overview-mobile"><b>Overview:</b> ${dataTMDB.overview ? dataTMDB.overview : `<a rel="noopener" target="_blank" href="https://www.imdb.com/title/${socialMedia.imdb_id}/?ref_=tt_urv"> -> Read on IMDB <- </a>`}</p>
                 <div class="content__top--secondary">
                     ${movieMeScore}
                     ${imdbScore}
@@ -258,9 +258,11 @@ export const renderPage = (dataTMDB, dataOMDB, credits, socialMedia, trailer, im
                     <div class="content__middle--other-cast">
                         ${castProfileMarkup}
                     </div>
-                    <div class="content__middle--other-trailer">
-                        ${trailerFrame}
-                    </div>
+                    ${
+                        trailerFrame ?
+                        `<div class="content__middle--other-trailer">${trailerFrame}</div>`
+                        : null
+                    }
                 </div> 
             </div>
 

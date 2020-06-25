@@ -10,7 +10,6 @@
     height: auto;
     margin-top: 9rem;
     color: #000;
-    text-shadow: $col-grey-dark;
 
     @include responsive (smallest) { margin-top: 7rem; }
 
@@ -23,7 +22,7 @@
         height: auto;
         padding: 2rem 5rem;
         font-size: 1.5rem;
-        color: #fff;
+        color: $col-grey-light;
 
         display: flex;
         justify-content: center;
@@ -195,8 +194,8 @@
                 }
 
                 &-icon {
-                    color: #E4BB24;
-                    font-size: 2.1rem;
+                    height: 25px;
+                    display: inline-block;
 
                     @include responsive (larger) { font-size: 1.5rem; }
 
@@ -292,16 +291,14 @@
         }
 
         &--facts {
-            background-color: #fff;
+            background-color: #000;
             flex: 0 0 25%;
             height: auto;
-            margin: 0 1rem 1rem 0;
-            color: #000;
+            margin: 1rem 1rem 1rem 0;
+            color: $col-grey-light;
             font-size: 1.6rem;
             padding: 3rem 3rem 2rem 2rem;
             border-right: $border-std;
-            border-bottom: $border-std;
-            border-bottom-right-radius: 5px;
             box-shadow: $box-shadow;
 
             display: flex;
@@ -348,12 +345,13 @@
 
                 @include responsive (largest) { flex: 0 0 100%; }
 
-                & a {
+                &-icon {
+                    height: 25px;
+                    width: 25px;
+                    display: inline-block;
+                }
 
-                    & i {
-                        font-size: 2rem;
-                        color: #000;
-                    }
+                & a {
 
                     &:not(:last-child) {
                         margin-right: 1.5rem;
@@ -384,8 +382,8 @@
                 
                 &-tooltip {
                     font-size: 1.5rem;
-                    color: white;
-                    background-color: #000;
+                    color: #000;
+                    background-color: $col-grey-light;
                     border-radius: 20%;
                     width: 1.5rem;
                     display: inline-block;
@@ -395,19 +393,6 @@
                     text-align: center;
                     user-select: none;
 
-                    &::before {
-                        position: absolute;
-                        content: "";
-                        width: 8px;
-                        height: 8px;
-                        background-color: rgba(0, 0, 0, 0.8);
-                        top: 4px;
-                        left: 17px;
-                        clip-path: polygon(0 50%, 100% 0, 100% 100%);
-                        transition: all .3s;
-                        visibility: hidden;
-                    }
-
                     &::after {
                         position: absolute;
                         top: -50px;
@@ -415,8 +400,9 @@
                         content: "";
                         width: 180px;
                         height: auto;
-                        background-color: rgba(0, 0, 0, 0.8);
+                        background-color: rgba(0, 0, 0, 0.6);
                         border-radius: 10px;
+                        border: 1px solid $col-grey-light;
                         padding: 1rem;
                         text-align: left;
                         color: #fff;
@@ -458,7 +444,7 @@
                 padding: 2rem;
                 border: $border-std;
                 box-shadow: $box-shadow;
-                color: #000;
+                color: $col-grey-light;
                 font-size: 1.2rem;
                 overflow-x: scroll;
 
@@ -528,6 +514,8 @@
 
             &-trailer {
                 margin: 5rem 0 0;
+                border: 1px solid $col-grey-dark;
+                padding: 7px;
                 
                 & iframe {
                     box-shadow: $box-shadow;
@@ -551,19 +539,20 @@
         height: auto;
         margin: 0;
         padding: 3rem;
-        background-color: #fff;
+        background-color: #000;
 
         @include responsive (largest) { padding: 3rem 0; }
             
         &--images {
             width: auto;
-            max-width: 90%;
+            max-width: 95%;
             height: auto;
             margin: 1rem auto 4rem;
             padding: 2rem;
             overflow-x: scroll;
-            background-color: #fff;
-            border: $border-std;
+            background-color: #000;
+            border-top: 1px solid $col-grey-light;
+            border-bottom: 1px solid $col-grey-light;
             box-shadow: $box-shadow;
 
             display: flex;
@@ -606,7 +595,7 @@
             margin: 2rem auto 3rem;
             font-size: 1.3rem;
             padding: 2rem;
-            color: #000;
+            color: $col-grey-light;
 
             display: flex;
             flex-direction: column;
@@ -635,6 +624,7 @@
                     border-radius: 10px;
                     box-shadow: $box-shadow;
                     margin: 0 1rem;
+                    color: $col-grey-light;
 
                     flex: 0 0 30%;
                     flex-wrap: wrap;
@@ -654,8 +644,7 @@
 
                 &-author {
                     color: inherit;
-                    color: #000;
-                    border-bottom: .5px solid #000;
+                    color: $col-grey-light;
                     padding-bottom: 0;
                     transition: all .2s;
 
@@ -664,16 +653,21 @@
                     &:hover,
                     &:active {
                         text-decoration: none;
+                        color: $col-grey-dark;
+                        border-bottom: .5px solid $col-grey-dark;
                     }
 
                     &:hover {
                         padding-bottom: .2rem;
+                        color: $col-grey-light;
+                        border-bottom: .5px solid $col-grey-light;
+
                     }
                 }
             }
 
             &-read-more {
-                color: #000;
+                color: $col-grey-light;
                 margin-top: 1.5rem;
                 
                 & a {
@@ -687,6 +681,7 @@
                     &:hover,
                     &:active {
                         transform: rotate(-2deg) scale(1.1);
+                        color: $col-grey-dark;
                     }
 
                     &:hover i {
@@ -695,7 +690,9 @@
                 }
 
                 &-icon {
-                    color: #000; 
+                    margin-left: 5px;
+                    height: 15px;
+                    
                 }
             }
         }

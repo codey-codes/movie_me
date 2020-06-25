@@ -4,7 +4,7 @@
     display: none;
     width: 90%;
     height: auto;
-    color: #000;
+    color: $col-grey-light;
     font-size: 1.4rem;
     margin: 2.5rem auto;
     padding: 2rem 0 3rem;
@@ -15,7 +15,7 @@
     flex-wrap: wrap;
 
     &__no-results {
-        color: #000;
+        color: $col-grey-light;
         font-size: 1.5rem;
         display: block;
         margin: 2rem auto;
@@ -120,20 +120,25 @@
                 &-title {
                     font-size: 1.5rem;
                     font-weight: 700;
-                    color: #000;
+                    color: $col-grey-light;
+                    transition: all .2s;
 
                     @include responsive (cheap) {
                         margin-top: 1rem;
                     }
                                         
                     & a {
-
+                        cursor: pointer;
+                        
                         &:link,
-                        &:visited,
+                        &:visited {
+                            text-decoration: none;
+                        }
+
                         &:hover,
                         &:active {
                             text-decoration: none;
-                            cursor: pointer;
+                            color: $col-grey-light;
                         }
                     }
                 }
@@ -142,8 +147,8 @@
                     width: 65px;
                     height: 27px;
                     font-size: 1.4rem;    
-                    color: #fff;
-                    background-color: #000;
+                    color: #000;
+                    background-color: $col-grey-light;
                     border-radius: 20px;
                     box-shadow: $box-shadow;   
                     padding: 1rem;
@@ -162,18 +167,23 @@
                 @include responsive (smaller) { align-self: flex-start; }
             }
 
-            &-overview-link {
-                color: $col-grey-dark;
-                text-decoration: none;
-                transition: all .2s;
-                border-bottom: $border-std;
-                padding: 0;
-                white-space: nowrap;
+            &-overview {
+                color: $col-grey-light;
+                
+                &-link {
+                    color: $col-grey-dark;
+                    text-decoration: none;
+                    transition: all .2s;
+                    border-bottom: $border-std;
+                    padding: 0;
+                    white-space: nowrap;
 
-                &:hover,
-                &:active {
-                    cursor: pointer;
-                    padding-bottom: .3rem;
+                    &:hover,
+                    &:active {
+                        cursor: pointer;
+                        padding-bottom: .3rem;
+                        color: $col-grey-light;
+                    }
                 }
             }
         }

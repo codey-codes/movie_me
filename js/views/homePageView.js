@@ -3,11 +3,15 @@
 import { elements, contentLimiter } from '../models/Base';
 
 export const renderPage = (data, type) => {
+    let heading = 'Trending Today';
+    if (elements.errorMessage.style.display !== 'block') {
+        if (type === 'popular') heading = 'Popular Right Now';
+        if (type === 'upcoming') heading = 'Up & Coming Movies';
+        if (type === 'playing') heading = 'Now Playing';
+        
+        elements.homePage.insertAdjacentHTML('afterbegin', `<h2 class="home-page__heading">${heading}</h2>`);
+    }
 
-    if (type === 'trending' && elements.errorMessage.style.display !== 'block') elements.homePage.insertAdjacentHTML('afterbegin', `<h2 class="home-page__heading">Trending Today</h2>`);    
-    if (type === 'popular' && elements.errorMessage.style.display !== 'block') elements.homePage.insertAdjacentHTML('afterbegin', `<h2 class="home-page__heading">Popular Right Now</h2>`);
-    if (type === 'upcoming' && elements.errorMessage.style.display !== 'block') elements.homePage.insertAdjacentHTML('afterbegin', `<h2 class="home-page__heading">Up & Coming Movies</h2>`);
-    if (type === 'playing' && elements.errorMessage.style.display !== 'block') elements.homePage.insertAdjacentHTML('afterbegin', `<h2 class="home-page__heading">Now Playing</h2>`);
     // elements.errorMessage.style.display is the error block. Show the h2 only when this error message is not being displayed
     
     for (let i = 0; i < data.length; i++) {
@@ -42,7 +46,7 @@ export const renderPage = (data, type) => {
                     <p class="home-page__movie-info-main-title"><a onclick="controlMoviePage(${data[i].id}, '${data[i].imdb_id}')">${data[i].title}</a></p>
                     <div class="home-page__movie-info-main">
                         <p class="home-page__movie-info-date">Released: ${data[i].release_date}</p>
-                        <p class="home-page__movie-info-main-rating">${data[i].vote_average === 0 ? 'NR' : (data[i].vote_average.toFixed(1) + ' <i class="far fa-star"></i>')}</p>
+                        <p class="home-page__movie-info-main-rating">${data[i].vote_average === 0 ? 'NR' : (data[i].vote_average.toFixed(1) + ' <img src="img/icons/star.svg" alt="Star Icon" width="14px" height="14px">')}</p>
                     </div> 
                     <p class="home-page__movie-info-overview">${overviewMarkup}</p>
                 </div>
