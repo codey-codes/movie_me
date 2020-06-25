@@ -1,0 +1,55 @@
+{
+    "name": "Movie_Me!",
+    "short_name": "MovieMe",
+    "start_url": "./",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "A PWA for movie lovers",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "./img/icons/favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "./img/icons/favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "./img/icons/favicon-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "./img/icons/apple-touch-icon-114x114.png",
+            "type": "image/png",
+            "sizes": "114x114"
+        },
+        {
+            "src": "./img/icons/apple-touch-icon-144x144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "./img/icons/apple-touch-icon-152x152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "./img/icons/favicon-196x196.png",
+            "type": "image/png",
+            "sizes": "196x196"
+        },
+        {
+            "src": "./img/icons/favicon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
